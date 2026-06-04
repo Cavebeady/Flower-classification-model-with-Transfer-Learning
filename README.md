@@ -11,6 +11,13 @@ A deep learning project that leverages transfer learning with a pre-trained **Mo
 
 ---
 
+## Dataset
+The model is trained and evaluated on a dataset containing five classes of flowers. Due to large file size limitations on GitHub, the source data can be downloaded directly from the following cloud mirror:
+
+📥 **[Download Dataset from Google Drive](https://drive.google.com/file/d/1xVOWC9OcVPHaA4gWG_ZKHsCSPMbPCJjb/view?usp=drive_link)**
+
+---
+
 ## 🚀 Features & Workflow
 
 * **Data Pipeline:** Automated image loading, resizing ($224 \times 224$), and batching using TensorFlow's `image_dataset_from_directory`.
@@ -33,14 +40,31 @@ The network utilizes a feature extraction pipeline followed by a fully connected
 
 ## 🛠️ Repository & Dataset Structure
 
-The tree below shows the required file structure for the notebook to run successfully. The `image_dataset_from_directory()` function automatically infers target labels from the explicit subdirectory names inside `train/` and `validation/`.
+## Dataset Structure
+
+The project expects the training images to be organized in a standard directory structure where the parent directory contains subfolders named after each target class. The classification function automatically infers the class labels directly from these folder names.
+
+Organize your dataset folder as follows:
 
 ```text
-├── Flower_model.ipynb       # Main training and evaluation notebook
-└── flower_dataset/          # Root dataset directory
-    ├── train/               # Dataset used for model training
-    │   ├── class_a/         # Images belonging to Class A (e.g., roses)
-    │   └── class_b/         # Images belonging to Class B (e.g., sunflowers)
-    └── validation/          # Dataset used for model validation
-        ├── class_a/         # Images belonging to Class A
-        └── class_b/         # Images belonging to Class B
+flowers/
+├── daisy/
+│   ├── image_0001.jpg
+│   ├── image_0002.jpg
+│   └── ...
+├── dandelion/
+│   ├── image_0001.jpg
+│   ├── image_0002.jpg
+│   └── ...
+├── roses/
+│   ├── image_0001.jpg
+│   ├── image_0002.jpg
+│   └── ...
+├── sunflowers/
+│   ├── image_0001.jpg
+│   ├── image_0002.jpg
+│   └── ...
+└── tulips/
+    ├── image_0001.jpg
+    ├── image_0002.jpg
+    └── ...
